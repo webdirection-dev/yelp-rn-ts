@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar} from 'expo-status-bar'
+import {View, FlatList} from 'react-native'
+import {stylesApp} from "./src/static/styles/style"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+import Header from './src/layout/header/Header'
+import Main from "./src/layout/main/Main"
+import Category from "./src/components/category/Category"
+
+const App = () => (
+    <View style={stylesApp.container}>
+        <Header />
+        <Category />
+        <Main />
+        <StatusBar style="auto" />
     </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+)
+export default App
