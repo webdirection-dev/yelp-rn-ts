@@ -9,3 +9,8 @@ export const h1 = {
 export const h2 = {
     fontSize: 35
 } as TStyles
+
+export const h3 = {
+    fontSize: 20,
+    fontWeight: '700',
+} as TStyles

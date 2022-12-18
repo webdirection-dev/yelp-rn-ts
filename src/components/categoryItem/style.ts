@@ -8,7 +8,8 @@ export const stylesCategoryItem = StyleSheet.create({
         ...centerItem,
         width: 70,
         height: 100,
-        borderRadius: 50
+        borderRadius: 50,
+        marginRight: 17
     },
     imgContainer: {
         ...centerItem,
@@ -22,5 +23,5 @@ export const stylesCategoryItem = StyleSheet.create({
         width: 35,
         height: 35,
     },
-    titleS: {fontWeight: 'bold'}
+    titleS: {fontWeight: 'bold', textTransform: 'capitalize'}
 })

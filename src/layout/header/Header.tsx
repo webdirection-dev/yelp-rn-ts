@@ -1,6 +1,6 @@
 import {Text, View} from "react-native"
 import {stylesHeader} from "./style"
-import Search from "../../components/search/Search"
+import Search from "../../features/search/Search"
 
 const Header = () => {
     const {container, title, subtitle} = stylesHeader

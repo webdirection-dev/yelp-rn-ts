@@ -1,1 +1,1 @@
-export const dataCategory = ['burger', 'cake', 'pasta', 'pizza', 'smoothies', 'steak']
+export const dataCategory = ['burger', 'cake', 'pasta', 'pizza', 'smoothie', 'steak']

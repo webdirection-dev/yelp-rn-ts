@@ -8,9 +8,10 @@ export const stylesSearch = StyleSheet.create({
         marginTop: 20,
         padding:10,
         borderRadius: 20,
+        justifyContent: "space-between"
     },
      input: {
+        width: '80%',
         fontSize: 20,
-        marginLeft: 5,
      }
 })
