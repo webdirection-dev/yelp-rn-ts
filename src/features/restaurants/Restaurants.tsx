@@ -11,7 +11,7 @@ const Restaurants = () => {
     const {search} = useAppSelector(store => selectSearchInfo(store))
     const [term, setTerm] = useState('')
     const {container, header} = stylesRestaurants
-    const {data, isLoading, isError, error} = useGetRestaurantsQuery(term)
+    const {data, isLoading, isError, error, isFetching} = useGetRestaurantsQuery(term)
 
     useEffect(() => {
         setTerm(search)
@@ -30,7 +30,7 @@ const Restaurants = () => {
     return(
         <View style={container}>
             <Text style={header}>Top Restaurants</Text>
-            {isLoading ? <ActivityIndicator size="large" color='white'/> : (
+            {isLoading || isFetching ? <ActivityIndicator size="large" color='white'/> : (
                 <FlatList
                     data={data && data.businesses}
                     renderItem={i => <RestaurantItem item={i.item}/>}
