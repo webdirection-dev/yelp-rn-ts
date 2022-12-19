@@ -11,8 +11,8 @@ const Category = () => {
     const {container} = stylesCategory
 
     const handleSetCategory = (txt: string) => {
-        dispatch(setSearch(search.toLowerCase() !== txt.toLowerCase() && txt))
         dispatch(setCategory(txt))
+        dispatch(setSearch(txt))
     }
 
     return(

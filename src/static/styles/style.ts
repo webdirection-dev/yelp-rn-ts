@@ -6,6 +6,7 @@ export const stylesApp = StyleSheet.create({
     container: {
         flex: 1,
         paddingTop: 40,
+        // paddingBottom: 40,
         backgroundColor: '#fec3d7'
     },
 })
