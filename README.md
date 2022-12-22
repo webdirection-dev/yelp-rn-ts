@@ -5,4 +5,4 @@
 - Redux Toolkit
 - RTK Query
 
-[DEMO](http://demo2.apwdev.ru)
+[DEMO](http://)
