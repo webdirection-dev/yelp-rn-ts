@@ -2,12 +2,7 @@ import {FC} from "react"
 import {Image, Text, View, TouchableOpacity} from "react-native"
 import {useCategoryItem} from "./use-category-item"
 
-interface IPropCategoryItem {
-    title: string;
-    index: number;
-    category: string;
-    handleSetCategory: (txt: string) => void
-}
+interface IPropCategoryItem {title: string; index: number; category: string; handleSetCategory: (txt: string) => void}
 
 const CategoryItem: FC<IPropCategoryItem> = ({title, index, category, handleSetCategory}) => {
     const {container, imgContainer, img, titleS, imgUrl} = useCategoryItem(title, index, category)

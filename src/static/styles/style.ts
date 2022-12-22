@@ -1,15 +1,5 @@
-import {StyleSheet} from "react-native"
 import {bgGeneral} from "./var"
 import {TStyles} from "../types/types"
-
-export const stylesApp = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingTop: 40,
-        // paddingBottom: 40,
-        backgroundColor: '#fec3d7'
-    },
-})
 
 //SHADOW
 export const containerShadow = {

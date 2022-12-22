@@ -1,44 +1,35 @@
-import {useEffect, useState} from "react"
-import {useAppSelector} from "../../store"
-import {selectSearchInfo} from "../search/search-slice"
-import {Text, View, ActivityIndicator, FlatList} from "react-native"
-import {stylesRestaurants} from "./style"
+import {Text, View, SafeAreaView, ActivityIndicator, FlatList, TouchableOpacity} from "react-native"
 import RestaurantItem from "../../components/restaurantItem/RestaurantItem"
-import {useGetRestaurantsQuery} from "./restaurantApi"
-import {IErrorUseQuery} from "../../static/types/types"
+import ErrorQuery from "../../components/errorInfo/ErrorInfo"
+
+import {useRestaurants} from "./use-restaurants"
+import {IErrorUseQuery} from "../../static/types/types";
 
 const Restaurants = () => {
-    const {search} = useAppSelector(store => selectSearchInfo(store))
-    const [term, setTerm] = useState('')
-    const {container, header} = stylesRestaurants
-    const {data, isLoading, isError, error, isFetching} = useGetRestaurantsQuery(term)
+    const {isLoading, isFetching, isError, error, data, navigation} = useRestaurants()
 
-    useEffect(() => {
-        setTerm(search)
-    }, [search])
-
+    //ERROR
     if (isError && error) {
         const {status, data: {error: {code, description}}} = error as IErrorUseQuery
-        return (
-            <View>
-                <Text style={header}>Top Restaurants</Text>
-                <Text>{status}: {code}</Text>
-                <Text>{description}</Text>
-            </View>
-        )
+        return <ErrorQuery status={status} code={code} description={description} />
     }
+
+    //SUCCESS
     return(
-        <View style={container}>
-            <Text style={header}>Top Restaurants</Text>
+        <SafeAreaView>
             {isLoading || isFetching ? <ActivityIndicator size="large" color='white'/> : (
                 <FlatList
                     data={data && data.businesses}
-                    renderItem={i => <RestaurantItem item={i.item}/>}
+                    renderItem={i => (
+                        <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Restaurant' as never, i.item as never)} >
+                            <RestaurantItem item={i.item} index={i.index}/>
+                        </TouchableOpacity>
+                    )}
                     showsVerticalScrollIndicator={false}
                     keyExtractor={i => i.id}
                 />
             )}
-        </View>
+        </SafeAreaView>
     )
 }
 export default Restaurants

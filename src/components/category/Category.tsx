@@ -1,19 +1,9 @@
 import {FlatList, View} from "react-native"
-import {stylesCategory} from "./style"
-import {useAppDispatch, useAppSelector} from "../../store"
-import {setSearch, setCategory, selectSearchInfo} from "../../features/search/search-slice"
 import CategoryItem from "../categoryItem/CategoryItem"
-import {dataCategory} from "../../static/data/dataCategory"
+import {useCategory} from "./use-category"
 
 const Category = () => {
-    const dispatch = useAppDispatch()
-    const {search, category} = useAppSelector(store => selectSearchInfo(store))
-    const {container} = stylesCategory
-
-    const handleSetCategory = (txt: string) => {
-        dispatch(setCategory(txt))
-        dispatch(setSearch(txt))
-    }
+    const {dataCategory, container, category, handleSetCategory} = useCategory()
 
     return(
         <View>

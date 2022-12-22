@@ -7,6 +7,7 @@ export const fontSize = {
 } as TStyles
 
 //COLOR
+export const generalColor = '#fec3d7'
 export const bgGeneral = 'white'
 export const colorActive = 'rgb(241, 186, 87)'
 export const bgColor = {
